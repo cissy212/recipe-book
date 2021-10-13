@@ -10,8 +10,8 @@ export const recipeList = [
     name: "Arroz con Pollo",
     steps: ["picar cebolla", "cortar tomates"],
     ingredients: [
-      { name: "cebolla", unitShare: 0.5 },
-      { name: "tomate", unitShare: 1 },
+      { name: "cebolla", unitShare: 0.125 },
+      { name: "tomate", unitShare: 0.25 },
     ],
     score: 4.3,
   },

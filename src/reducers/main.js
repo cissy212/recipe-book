@@ -31,7 +31,7 @@ export default function mainReducer(state = initialState, action) {
       return {
         ...state,
         statusSelectedRecipeData: "success",
-        selectedRecipe: action.payload,
+        selectedRecipeData: action.payload,
       };
     case "SELECT_RECIPE_REJECT":
       return { ...state, statusSelectedRecipeData: "error" };

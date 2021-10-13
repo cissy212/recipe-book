@@ -12,6 +12,7 @@ const Home = () => {
   );
 
   useEffect(() => {
+    console.log("fetch data");
     fetchData();
   }, []);
 
@@ -41,24 +42,28 @@ const Home = () => {
         <Link to="/scores">Ver Valoraciones</Link>
       </div>
       <div>
-        <table border={1}>
-          <thead>
-            <tr>
-              <th>Receta</th>
-              <th>Puntaje</th>
-            </tr>
-          </thead>
-          <tbody>
-            {recipesData.map((item) => (
+        {!loading && !error && (
+          <table border={1}>
+            <thead>
               <tr>
-                <td>
-                  <Link to={`/recipe/${item.id}`}>{item.name}</Link>
-                </td>
-                <td>{item.score}</td>
+                <th>Receta</th>
+                <th>Puntaje</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {recipesData.map((item) => (
+                <tr>
+                  <td>
+                    <Link to={`/recipe/${item.id}`}>{item.name}</Link>
+                  </td>
+                  <td>{item.score}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+        {!loading && error && <p>ha ocurrido un error</p>}
+        {loading && <p>loading...</p>}
       </div>
     </div>
   );
