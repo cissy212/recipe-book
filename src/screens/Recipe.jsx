@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams, useHistory } from "react-router-dom";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 import * as actions from "../actions";
 import * as helper from "../helpers";
 import IngredientsList from "../components/IngredientsList";
+import Steps from "../components/Steps";
 
 const Recipe = () => {
   const [inputPeople, setInputPeople] = useState(1);
@@ -44,10 +47,17 @@ const Recipe = () => {
 
   const loading = helper.isLoading(statusSelectedRecipeData);
   const error = helper.hasError(statusSelectedRecipeData);
-  console.log(selectedRecipeData);
+
   return (
     <div>
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         {!loading &&
           !error &&
           !localError &&
@@ -56,11 +66,31 @@ const Recipe = () => {
               <p>
                 <b>{`${selectedRecipeData.name} (${selectedRecipeData.score})`}</b>
               </p>
-              Tabs
-              <IngredientsList
-                amountOfPeople={9}
-                list={selectedRecipeData.ingredients}
-              />
+              <Tabs>
+                <TabList>
+                  <Tab>Ingredientes</Tab>
+                  <Tab>Pasos</Tab>
+                </TabList>
+
+                <TabPanel>
+                  <label>Para</label>
+                  <input
+                    type="number"
+                    name="amount"
+                    value={inputPeople}
+                    onChange={(e) => setInputPeople(e.target.value)}
+                  ></input>
+                  <label>personas</label>
+                  <IngredientsList
+                    amountOfPeople={inputPeople}
+                    list={selectedRecipeData.ingredients}
+                  />
+                </TabPanel>
+                <TabPanel>
+                  <Steps list={selectedRecipeData.steps} />
+                </TabPanel>
+              </Tabs>
+
               <div>
                 <select
                   value={selectedScore}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import RecipesTable from "../components/RecipesTable";
 import { Link } from "react-router-dom";
 import * as actions from "../actions";
 import * as helper from "../helpers";
@@ -17,7 +18,9 @@ const Home = () => {
   }, []);
 
   const fetchData = () => {
-    dispatch(actions.getRecipeSummary());
+    if (recipesData.length === 0) {
+      dispatch(actions.getRecipeSummary());
+    }
   };
 
   const loading = helper.isLoading(statusRecipesData);
@@ -42,26 +45,7 @@ const Home = () => {
         <Link to="/scores">Ver Valoraciones</Link>
       </div>
       <div>
-        {!loading && !error && (
-          <table border={1}>
-            <thead>
-              <tr>
-                <th>Receta</th>
-                <th>Puntaje</th>
-              </tr>
-            </thead>
-            <tbody>
-              {recipesData.map((item) => (
-                <tr>
-                  <td>
-                    <Link to={`/recipe/${item.id}`}>{item.name}</Link>
-                  </td>
-                  <td>{item.score}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
+        {!loading && !error && <RecipesTable recipesData={recipesData} />}
         {!loading && error && <p>ha ocurrido un error</p>}
         {loading && <p>loading...</p>}
       </div>

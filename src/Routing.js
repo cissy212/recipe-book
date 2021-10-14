@@ -21,9 +21,9 @@ export default function Routing() {
         <Route path="/scores">
           <Scores />
         </Route>
-        {/* <Route path="*">
+        <Route path="*">
           <Redirect to="/"></Redirect>
-        </Route> */}
+        </Route>
       </Switch>
     </Router>
   );
