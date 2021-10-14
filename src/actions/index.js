@@ -1,13 +1,12 @@
 import {
-  getRecipeSummaryApi,
+  getRecipesApi,
   getSelectedRecipeApi,
   saveRecipeScoreApi,
 } from "../api/index";
 
-export const getRecipeSummary = () => (dispatch) => {
-  console.log("getRecipeSummary");
+export const getRecipes = () => (dispatch) => {
   dispatch({ type: "GET_RECIPES_START" });
-  getRecipeSummaryApi()
+  getRecipesApi()
     .then((res) => {
       dispatch({ type: "GET_RECIPES_SUCCESS", payload: res || [] });
     })
@@ -35,11 +34,19 @@ export const getSelectedRecipe = (id) => (dispatch) => {
 export const saveRecipeScore = (id, score) => (dispatch) => {
   saveRecipeScoreApi(id, score)
     //   .then(() => {
-    //     dispatch(getRecipeSummary());
+    //     dispatch(getRecipes());
     //   })
     .catch(() =>
       dispatch({
         type: "SELECT_RECIPE_REJECT",
       })
     );
+};
+
+export const updateCriteria = (criteria) => (dispatch) => {
+  dispatch({ type: "UPDATE_CRITERIA", payload: criteria });
+};
+
+export const filterRecipes = () => (dispatch) => {
+  dispatch({ type: "FILTER_RECIPES" });
 };

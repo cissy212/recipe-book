@@ -15,3 +15,15 @@ export const sortByCriteria = (list, criteria, order = "asc") => {
   });
   return result;
 };
+
+export const filterRecipes = (list, criteria) => {
+  return list.filter(
+    (item) =>
+      item.name.toLowerCase().indexOf(criteria?.toLowerCase()) > -1 ||
+      (item.ingredients.length > 0 &&
+        item.ingredients.filter(
+          (ingredient) =>
+            ingredient.name.toLowerCase().indexOf(criteria?.toLowerCase()) > -1
+        ))
+  );
+};

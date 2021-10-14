@@ -1,18 +1,18 @@
 // import axios from "axios";
-import { recipeSummary, recipeList } from "../data/sampleData";
+import { recipeList } from "../data/sampleData";
 
 // const serverAddress = "";
 
-export async function getRecipeSummaryApi() {
+export async function getRecipesApi() {
   try {
     // const response = await axios.get(`${serverAddress}test.json`, {
     //   headers: { "Content-Type": "application/json" },
     //   timeout: 35000,
     // });
     // return response.data;
-    return recipeSummary;
+    return recipeList;
   } catch (e) {
-    console.log("error in getRecipeSummaryApi");
+    console.log("error in getRecipesApi");
     return null;
   }
 }

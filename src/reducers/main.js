@@ -7,6 +7,8 @@ const initialState = {
   //TODO:split the status and data sets into different reducers to be combined if this escalates
   recipeName: "",
   recipesData: [],
+  filteredRecipesData: [],
+  searchCriteria: "",
   // scoresData: [],
   selectedRecipeData: {},
 };
@@ -16,10 +18,12 @@ export default function mainReducer(state = initialState, action) {
     case "GET_RECIPES_START":
       return { ...state, statusRecipesData: "loading" };
     case "GET_RECIPES_SUCCESS": {
+      const data = helper.sortByCriteria(action.payload, "name");
       return {
         ...state,
         statusRecipesData: "success",
-        recipesData: helper.sortByCriteria(action.payload, "name"),
+        recipesData: data,
+        filteredRecipesData: helper.filterRecipes(data, state.searchCriteria),
       };
     }
     case "GET_RECIPES_REJECT":
@@ -27,6 +31,16 @@ export default function mainReducer(state = initialState, action) {
         ...state,
         statusRecipesData: "error",
       };
+    case "FILTER_RECIPES":
+      return {
+        ...state,
+        filteredRecipesData: helper.filterRecipes(
+          state.recipesData,
+          state.searchCriteria
+        ),
+      };
+    case "UPDATE_CRITERIA":
+      return { ...state, searchCriteria: action.payload };
     case "SELECT_RECIPE_START":
       return { ...state, statusSelectedRecipeData: "loading" };
     case "SELECT_RECIPE_SUCCESS":

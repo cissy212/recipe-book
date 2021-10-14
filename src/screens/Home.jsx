@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import RecipesTable from "../components/RecipesTable";
 import { Link } from "react-router-dom";
@@ -6,20 +6,26 @@ import * as actions from "../actions";
 import * as helper from "../helpers";
 
 const Home = () => {
-  const [inputSearch, setInputSearch] = useState("");
   const dispatch = useDispatch();
-  const { recipesData, statusRecipesData } = useSelector(
-    (state) => state.mainReducer
-  );
+  const {
+    recipesData,
+    statusRecipesData,
+    searchCriteria,
+    filteredRecipesData,
+  } = useSelector((state) => state.mainReducer);
 
   useEffect(() => {
     fetchData();
   }, []);
-
+  console.log(filteredRecipesData, recipesData, searchCriteria);
   const fetchData = () => {
     if (recipesData.length === 0) {
-      dispatch(actions.getRecipeSummary());
+      dispatch(actions.getRecipes());
     }
+  };
+
+  const searchInRecipe = () => {
+    dispatch(actions.filterRecipes());
   };
 
   const loading = helper.isLoading(statusRecipesData);
@@ -32,12 +38,12 @@ const Home = () => {
           <input
             type="search"
             name="search"
-            value={inputSearch}
-            onChange={(e) => setInputSearch(e.target.value)}
+            value={searchCriteria}
+            onChange={(e) => dispatch(actions.updateCriteria(e.target.value))}
           ></input>
         </div>
         <div>
-          <button>Buscar</button>
+          <button onClick={searchInRecipe}>Buscar</button>
         </div>
       </div>
       <div>
@@ -45,7 +51,7 @@ const Home = () => {
       </div>
       <div>
         {!loading && !error && (
-          <RecipesTable source="home" recipesData={recipesData} />
+          <RecipesTable source="home" recipesData={filteredRecipesData} />
         )}
         {!loading && error && <p>ha ocurrido un error</p>}
         {loading && <p>loading...</p>}

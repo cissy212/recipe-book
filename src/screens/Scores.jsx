@@ -20,7 +20,7 @@ const Scores = () => {
   //using same recipesData to avoid duplicated data. in the future if the data changes another action and data sets would be needed
   const fetchData = () => {
     if (recipesData.length === 0) {
-      dispatch(actions.getRecipeSummary());
+      dispatch(actions.getRecipes());
     }
   };
 
