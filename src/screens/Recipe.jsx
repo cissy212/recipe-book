@@ -20,7 +20,7 @@ const Recipe = () => {
 
   const [localError, setLocalError] = useState(false);
 
-  let { id } = useParams();
+  let { id, source } = useParams();
 
   useEffect(() => {
     if (!isNaN(id)) {
@@ -39,7 +39,8 @@ const Recipe = () => {
       dispatch(
         actions.saveRecipeScore(selectedRecipeData.id, parseInt(selectedScore))
       );
-      history.push("/");
+
+      history.push(source === "home" ? "/" : `/${source}`);
     } else {
       alert("seleccione un puntaje valido");
     }
@@ -75,6 +76,7 @@ const Recipe = () => {
                 <TabPanel>
                   <label>Para</label>
                   <input
+                    styles={{ padding: "5px" }}
                     type="number"
                     name="amount"
                     value={inputPeople}

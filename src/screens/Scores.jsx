@@ -42,6 +42,7 @@ const Scores = () => {
           <TabPanel>
             <div>
               <RecipesTable
+                source="scores"
                 recipesData={helper.sortByCriteria(
                   [...recipesData],
                   "score",
@@ -53,6 +54,7 @@ const Scores = () => {
           <TabPanel>
             <div>
               <RecipesTable
+                source="scores"
                 recipesData={helper.sortByCriteria([...recipesData], "score")}
               />
             </div>

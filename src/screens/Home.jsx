@@ -13,7 +13,6 @@ const Home = () => {
   );
 
   useEffect(() => {
-    console.log("fetch data");
     fetchData();
   }, []);
 
@@ -45,7 +44,9 @@ const Home = () => {
         <Link to="/scores">Ver Valoraciones</Link>
       </div>
       <div>
-        {!loading && !error && <RecipesTable recipesData={recipesData} />}
+        {!loading && !error && (
+          <RecipesTable source="home" recipesData={recipesData} />
+        )}
         {!loading && error && <p>ha ocurrido un error</p>}
         {loading && <p>loading...</p>}
       </div>

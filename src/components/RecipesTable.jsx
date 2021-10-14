@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const RecipesTable = ({ recipesData }) => {
+const RecipesTable = ({ recipesData, source }) => {
   return (
     <div>
       <table border={1}>
@@ -15,7 +15,7 @@ const RecipesTable = ({ recipesData }) => {
           {recipesData.map((item, key) => (
             <tr key={key}>
               <td>
-                <Link to={`/recipe/${item.id}`}>{item.name}</Link>
+                <Link to={`/recipe/${item.id}/${source}`}>{item.name}</Link>
               </td>
               <td>{item.score}</td>
             </tr>
