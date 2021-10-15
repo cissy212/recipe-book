@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import RecipesTable from "../components/RecipesTable";
 import { Link } from "react-router-dom";
+import "./Home.css";
 import * as actions from "../actions";
 import * as helper from "../helpers";
 
@@ -17,7 +18,7 @@ const Home = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(filteredRecipesData, recipesData, searchCriteria);
+
   const fetchData = () => {
     if (recipesData.length === 0) {
       dispatch(actions.getRecipes());
@@ -33,17 +34,23 @@ const Home = () => {
 
   return (
     <div>
-      <div>
+      <h1 className="title">My recipe book</h1>
+      <div className="flex">
         <div>
           <input
+            className="styled-input"
             type="search"
             name="search"
+            placeholder="Search"
+            aria-label="Search"
             value={searchCriteria}
             onChange={(e) => dispatch(actions.updateCriteria(e.target.value))}
           ></input>
         </div>
         <div>
-          <button onClick={searchInRecipe}>Buscar</button>
+          <button className="styled-button" onClick={searchInRecipe}>
+            Buscar
+          </button>
         </div>
       </div>
       <div>

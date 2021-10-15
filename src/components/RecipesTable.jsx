@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Table.css";
 
 const RecipesTable = ({ recipesData, source }) => {
   return (
     <div>
-      <table border={1}>
+      <table className="styled-table">
         <thead>
           <tr>
             <th>Receta</th>

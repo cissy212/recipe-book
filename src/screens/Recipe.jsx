@@ -105,7 +105,9 @@ const Recipe = () => {
                   <option value={4}>4</option>
                   <option value={5}>5</option>
                 </select>
-                <button onClick={saveRecipeScore}>Guardar</button>
+                <button className="styled-button" onClick={saveRecipeScore}>
+                  Guardar
+                </button>
               </div>
             </>
           ) : (

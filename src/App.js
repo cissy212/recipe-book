@@ -13,13 +13,7 @@ const store = createStore(rootReducer, applyMiddleware(thunk));
 export default function App() {
   return (
     <Provider store={store}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div className="container">
         <Routing />
       </div>
     </Provider>
