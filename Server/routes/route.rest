@@ -1,0 +1,34 @@
+GET http://localhost:3000/recipes
+
+
+###
+
+GET http://localhost:3000/recipes/616b16b828a1234014179223
+
+###
+
+POST http://localhost:3000/recipes
+Content-Type: application/json
+
+{
+    "name":"cecilia",
+    "score":5,
+    "steps":["cortar", "pegar"],
+    "ingredients":[{"name":"tomate", "unitShare":5}]
+}
+
+###
+
+DELETE http://localhost:3000/recipes/616b16b828a1234014179223
+
+###
+
+PUT http://localhost:3000/recipes/616b179c0eeee853f64e7f13
+Content-Type: application/json
+
+{
+    "name":"Mandioca",
+    "score":5,
+    "steps":["cortar", "pegar"],
+    "ingredients":[{"name":"tomate", "unitShare":5}]
+}
