@@ -21,6 +21,9 @@ router.get("/:id", getRecipe, (req, res) => {
 router.post("/", async (req, res) => {
   const recipe = new Recipe({
     name: req.body.name,
+    score: req.body.score,
+    steps: req.body.steps,
+    ingredients: req.body.ingredients,
   });
   try {
     const newRecipe = await recipe.save();
