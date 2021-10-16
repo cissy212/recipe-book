@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import RecipesTable from "../components/RecipesTable";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import "./Screens.css";
 import * as actions from "../actions";
 import * as helper from "../helpers";
 
@@ -54,7 +54,9 @@ const Home = () => {
         </div>
       </div>
       <div>
-        <Link to="/scores">Ver Valoraciones</Link>
+        <Link to="/scores" className="links">
+          Ver Valoraciones →
+        </Link>
       </div>
       <div>
         {!loading && !error && (

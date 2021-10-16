@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+}
+.column {
+  flex-direction: column;
+}
+
+.recipe-container {
+  margin-left: 0.938rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f1e3f3;
+}
+.width {
+  width: 100vw;
+}
+.styled-button {
+  margin: 0.625rem 0.438rem;
+  background: #b0bced;
+  border-radius: 62.438rem;
+  box-shadow: #b0bced 0 0.625rem 1.25rem -0.625rem;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: "Lato", sans-serif;
+  font-size: 0.938rem;
+  font-weight: 700;
+  line-height: 1.5rem;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 0.5rem 1.125rem;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: fit-content;
+  word-break: break-word;
+  border: 0;
+}
+
+.styled-input {
+  margin: 0.625rem 0.313rem;
+  padding: 0.625rem;
+  font-size: 0.938rem;
+  border-width: 0.063rem;
+  border-color: #c2bbf0;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: hidden;
+  border-radius: 0.938;
+  box-shadow: 0rem 0rem 0.5rem rgba(194, 187, 240, 0.75);
+}
+.styled-input:focus {
+  outline: none;
+}
+
+.input-tabs {
+  width: 20%;
+  text-align: center;
+}
+
+.title {
+  font-family: "Indie Flower", cursive;
+  text-align: center;
+  margin-bottom: 6.25rem;
+}
+
+.links {
+  color: #000000;
+  text-decoration: none;
+}
+.links:hover {
+  text-decoration: underline;
+}
+.select-css {
+  margin: 1.25rem;
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  text-align: initial;
+  border-width: 0.063rem;
+  border-color: #c2bbf0;
+  background-color: #ffffff;
+  color: #000000;
+  border-style: hidden;
+  border-radius: 0.938rem;
+  box-shadow: 0rem 0rem 0.5rem rgba(194, 187, 240, 0.75);
+  display: block;
+  line-height: 0.813rem;
+  width: 15%;
+  box-sizing: border-box;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}

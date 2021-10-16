@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "./Screens.css";
 import "react-tabs/style/react-tabs.css";
 import { Link } from "react-router-dom";
 import * as actions from "../actions";
@@ -29,7 +30,7 @@ const Scores = () => {
 
   return (
     <div>
-      <h3>Valoraciones</h3>
+      <h1 className="title">Valoraciones</h1>
       {!loading && error && <p>ha ocurrido un error</p>}
       {loading && <p>loading...</p>}
       {!loading && !error && (
@@ -62,7 +63,9 @@ const Scores = () => {
         </Tabs>
       )}
       <div>
-        <Link to="/">Volver</Link>
+        <Link to="/" className="links">
+          ←Volver
+        </Link>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useParams, useHistory } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "./Screens.css";
 import "react-tabs/style/react-tabs.css";
 import * as actions from "../actions";
 import * as helper from "../helpers";
@@ -51,22 +52,15 @@ const Recipe = () => {
 
   return (
     <div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+      <div className="recipe-container column">
         {!loading &&
           !error &&
           !localError &&
           (selectedRecipeData ? (
             <>
-              <p>
+              <h2 className="title">
                 <b>{`${selectedRecipeData.name} (${selectedRecipeData.score})`}</b>
-              </p>
+              </h2>
               <Tabs>
                 <TabList>
                   <Tab>Ingredientes</Tab>
@@ -76,7 +70,7 @@ const Recipe = () => {
                 <TabPanel>
                   <label>Para</label>
                   <input
-                    styles={{ padding: "5px" }}
+                    className="styled-input input-tabs"
                     type="number"
                     name="amount"
                     value={inputPeople}
@@ -93,8 +87,9 @@ const Recipe = () => {
                 </TabPanel>
               </Tabs>
 
-              <div>
+              <div className="recipe-container width">
                 <select
+                  className="select-css"
                   value={selectedScore}
                   onChange={(e) => setSelectedScore(e.target.value)}
                 >
@@ -116,9 +111,11 @@ const Recipe = () => {
         {!loading && error && !localError && <p>ha ocurrido un error</p>}
         {loading && !localError && <p>loading...</p>}
         {localError && <p> el id de la receta es incorrecto</p>}
-      </div>
-      <div>
-        <Link to="/">Volver</Link>
+        <div>
+          <Link to="/" className="links">
+            ←Volver
+          </Link>
+        </div>
       </div>
     </div>
   );
