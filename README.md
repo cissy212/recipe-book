@@ -8,14 +8,6 @@ cd Client
 
 npm i
 
-npm install --save react-redux
-
-npm install --save react-router-dom
-
-npm install --save redux-thunk
-
-npm install axios
-
 once installed
 
 npm start
@@ -61,7 +53,8 @@ with postman you can populate the DB with this
 
 POST http://localhost:8080/recipes
 
-   { "name": "Gnocchi de batata",
+   { 
+   "name": "Gnocchi de batata",
     "scores": [1,3],
     "steps": ["pisar batatas","mezclar harina"],
     "ingredients": [{"name": "batata","unitShare": 2}]
