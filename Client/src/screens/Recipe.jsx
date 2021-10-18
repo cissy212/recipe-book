@@ -18,14 +18,13 @@ const Recipe = () => {
   const { selectedRecipeData, statusSelectedRecipeData } = useSelector(
     (state) => state.mainReducer
   );
-
   const [localError, setLocalError] = useState(false);
 
   let { id, source } = useParams();
 
   useEffect(() => {
-    if (!isNaN(id)) {
-      fetchData(parseInt(id));
+    if (id) {
+      fetchData(id);
     } else {
       setLocalError(true);
     }
@@ -59,7 +58,7 @@ const Recipe = () => {
           (selectedRecipeData ? (
             <>
               <h2 className="title">
-                <b>{`${selectedRecipeData.name} (${selectedRecipeData.score})`}</b>
+                <b>{`${selectedRecipeData.name} (${selectedRecipeData.scores})`}</b>
               </h2>
               <Tabs>
                 <TabList>

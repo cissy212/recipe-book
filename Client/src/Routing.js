@@ -15,7 +15,7 @@ export default function Routing() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/recipe/:id/:source">
+        <Route path="/recipes/:id/:source">
           <Recipe />
         </Route>
         <Route path="/scores">

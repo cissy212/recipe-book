@@ -5,8 +5,8 @@ const recipesSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  score: {
-    type: Number,
+  scores: {
+    type: [Number],
     required: true,
   },
   steps: {

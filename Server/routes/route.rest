@@ -1,34 +1,33 @@
-GET http://localhost:4000/recipes
+GET http://localhost:8080/recipes
 
 
 ###
 
-GET http://localhost:4000/recipes/616b16b828a1234014179223
-
+GET http://localhost:8080/recipes/616b7a8aa666b5fb96262ce6
 ###
 
-POST http://localhost:4000/recipes
+POST http://localhost:8080/recipes
 Content-Type: application/json
 
 {
-    "name":"Gnocchi de batata",
-    "score":3,
-    "steps":["pisar batatas","mezclar harina"],
-    "ingredients":[{"name":"batata","unitShare": 2}]
+    "name": "Brownie",
+    "scores": [4.6],
+    "steps": ["calentar horno","mezclar huevos"],
+    "ingredients": [{"name": "huevos","unitShare": 0.25}]
 }
 
 ###
 
-DELETE http://localhost:4000/recipes/616b1ea5d060ec2cc800534a
+DELETE http://localhost:8080/recipes/616b22b5a8076d8119429d28
 
 ###
 
-PUT http://localhost:4000/recipes/616b1e61d060ec2cc8005344
+PUT http://localhost:8080/recipes/616b7bd88b64ffe2e6bc98b7
 Content-Type: application/json
 
-{
-    "name":"Arroz con Pollo",
-    "score":4.3,
-    "steps":["picar cebolla","cortar tomates"],
-    "ingredients":[{"name": "cebolla", "unitShare": 0.125},{ "name": "tomate", "unitShare": 0.25 }]
+{ 
+    "name": "Brownie",
+    "scores": [4.6],
+    "steps": ["calentar horno","mezclar huevos"],
+    "ingredients": [{"name": "huevos","unitShare": 0.25}]
 }

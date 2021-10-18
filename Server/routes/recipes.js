@@ -21,7 +21,7 @@ router.get("/:id", getRecipe, (req, res) => {
 router.post("/", async (req, res) => {
   const recipe = new Recipe({
     name: req.body.name,
-    score: req.body.score,
+    scores: req.body.scores,
     steps: req.body.steps,
     ingredients: req.body.ingredients,
   });
@@ -37,6 +37,9 @@ router.post("/", async (req, res) => {
 router.put("/:id", getRecipe, async (req, res) => {
   if (req.body.name !== null) {
     res.recipe.name = req.body.name;
+  }
+  if (req.body.scores !== null) {
+    res.recipe.scores = req.body.scores;
   }
   if (req.body.steps !== null) {
     res.recipe.steps = req.body.steps;
@@ -63,6 +66,7 @@ router.delete("/:id", getRecipe, async (req, res) => {
 });
 
 async function getRecipe(req, res, next) {
+  let recipe;
   try {
     recipe = await Recipe.findById(req.params.id);
     if (recipe == null) {

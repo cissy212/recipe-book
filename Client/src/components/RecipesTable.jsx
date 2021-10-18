@@ -16,9 +16,9 @@ const RecipesTable = ({ recipesData, source }) => {
           {recipesData.map((item, key) => (
             <tr key={key}>
               <td>
-                <Link to={`/recipe/${item.id}/${source}`}>{item.name}</Link>
+                <Link to={`/recipes/${item._id}/${source}`}>{item.name}</Link>
               </td>
-              <td>{item.score}</td>
+              <td>{item.scores}</td>
             </tr>
           ))}
         </tbody>

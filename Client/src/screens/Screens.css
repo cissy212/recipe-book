@@ -50,7 +50,7 @@
   background-color: #ffffff;
   color: #000000;
   border-style: hidden;
-  border-radius: 0.938;
+  border-radius: 0.938rem;
   box-shadow: 0rem 0rem 0.5rem rgba(194, 187, 240, 0.75);
 }
 .styled-input:focus {
