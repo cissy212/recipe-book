@@ -62,7 +62,7 @@ with postman you can populate the DB with this
 POST http://localhost:8080/recipes
 
    { "name": "Gnocchi de batata",
-    "scores": [3],
+    "scores": [1,3],
     "steps": ["pisar batatas","mezclar harina"],
     "ingredients": [{"name": "batata","unitShare": 2}]}
 
@@ -70,7 +70,7 @@ POST http://localhost:8080/recipes
 POST http://localhost:8080/recipes
 
   	{"name": "Arroz con Pollo",
-    "scores": [4.3],
+    "scores": [4,2],
 		"steps": ["picar cebolla","cortar tomates"],
     "ingredients": [
 			{"name": "cebolla","unitShare": 0.125},
@@ -81,6 +81,6 @@ POST http://localhost:8080/recipes
 POST http://localhost:8080/recipes
 
     {"name": "Brownie",
-    "scores": [4.6],
+    "scores": [4,5],
     "steps": ["calentar horno","mezclar huevos"],
     "ingredients": [{"name": "huevos","unitShare": 0.25}]}
