@@ -24,21 +24,29 @@ npm start
 if you don't have mongodb please install it in your computer 
 
 https://www.mongodb.com/try/download/community
+if you are a mac User
 
-Select complete and the make sure to check Install MongoDB as a service and Run service as Network Service User
+Select complete and then make sure to check Install MongoDB as a service and Run service as Network Service User
 
 you can avoid install MongoDB Compass if you want
+
+
+if you are a mac User
+
+
+brew tap mongodb/brew
+
+
+brew install mongodb-community@5.0
+
+
+brew services start mongodb-community@5.0
+
 
 
 Server side
 
 npm i
-
-npm install express
-
-npm install cors
-
-npm install mongoose
 
 once installed
 
