@@ -1,7 +1,7 @@
 # recipe-book
 Recipe book manager	
 
-To run this application you should clone this repository and install the next dependecies
+To run this application you should clone this repository and install the next dependencies
 
 
 Client side
