@@ -31,11 +31,11 @@ export const getSelectedRecipe = (id) => (dispatch) => {
     );
 };
 
-export const saveRecipeScore = (id, score) => (dispatch) => {
-  saveRecipeScoreApi(id, score)
-    //   .then(() => {
-    //     dispatch(getRecipes());
-    //   })
+export const saveRecipeScore = (recipe) => (dispatch) => {
+  saveRecipeScoreApi(recipe)
+    .then(() => {
+      dispatch(getRecipes());
+    })
     .catch(() =>
       dispatch({
         type: "SELECT_RECIPE_REJECT",

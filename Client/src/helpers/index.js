@@ -16,14 +16,25 @@ export const sortByCriteria = (list, criteria, order = "asc") => {
   return result;
 };
 
+export const isCriteriaInIngredients = (list, criteria) => {
+  return (
+    list.filter(
+      (item) => item.name.toLowerCase().indexOf(criteria?.toLowerCase()) > -1
+    ).length > 0
+  );
+};
 export const filterRecipes = (list, criteria) => {
   return list.filter(
     (item) =>
       item.name.toLowerCase().indexOf(criteria?.toLowerCase()) > -1 ||
-      (item.ingredients.length > 0 &&
-        item.ingredients.filter(
-          (ingredient) =>
-            ingredient.name.toLowerCase().indexOf(criteria?.toLowerCase()) > -1
-        ))
+      isCriteriaInIngredients(item.ingredients, criteria)
   );
+};
+
+export const getAverage = (scores) => {
+  const average = (scores) => {
+    const total = scores.reduce((acc, c) => acc + c, 0);
+    return total / scores.length;
+  };
+  return average(scores).toFixed(2);
 };

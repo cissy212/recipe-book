@@ -19,11 +19,19 @@ export default function mainReducer(state = initialState, action) {
       return { ...state, statusRecipesData: "loading" };
     case "GET_RECIPES_SUCCESS": {
       const data = helper.sortByCriteria(action.payload, "name");
+      const newData = [
+        ...data.map((recipe) => {
+          return { ...recipe, scoreAvg: helper.getAverage(recipe.scores) };
+        }),
+      ];
       return {
         ...state,
         statusRecipesData: "success",
-        recipesData: data,
-        filteredRecipesData: helper.filterRecipes(data, state.searchCriteria),
+        recipesData: newData,
+        filteredRecipesData: helper.filterRecipes(
+          newData,
+          state.searchCriteria
+        ),
       };
     }
     case "GET_RECIPES_REJECT":
@@ -44,10 +52,14 @@ export default function mainReducer(state = initialState, action) {
     case "SELECT_RECIPE_START":
       return { ...state, statusSelectedRecipeData: "loading" };
     case "SELECT_RECIPE_SUCCESS":
+      const newRecipeData = {
+        ...action.payload,
+        scoreAvg: helper.getAverage(action.payload?.scores),
+      };
       return {
         ...state,
         statusSelectedRecipeData: "success",
-        selectedRecipeData: action.payload,
+        selectedRecipeData: newRecipeData,
       };
     case "SELECT_RECIPE_REJECT":
       return { ...state, statusSelectedRecipeData: "error" };

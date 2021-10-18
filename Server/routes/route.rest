@@ -22,12 +22,12 @@ DELETE http://localhost:8080/recipes/616b22b5a8076d8119429d28
 
 ###
 
-PUT http://localhost:8080/recipes/616b7bd88b64ffe2e6bc98b7
+PATCH http://localhost:8080/recipes/616b7b6c8b64ffe2e6bc98b5
 Content-Type: application/json
 
 { 
-    "name": "Brownie",
-    "scores": [4.6],
-    "steps": ["calentar horno","mezclar huevos"],
-    "ingredients": [{"name": "huevos","unitShare": 0.25}]
+    "name": "Arroz con Pollo",
+    "scores": [4.3],
+    "steps": ["picar cebolla","cortar tomates"],
+    "ingredients": [{"name": "cebolla","unitShare": 0.125},{"name": "tomate","unitShare": 0.25}]
 }

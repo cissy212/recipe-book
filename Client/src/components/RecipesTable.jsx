@@ -18,7 +18,7 @@ const RecipesTable = ({ recipesData, source }) => {
               <td>
                 <Link to={`/recipes/${item._id}/${source}`}>{item.name}</Link>
               </td>
-              <td>{item.scores}</td>
+              <td>{item.scoreAvg}</td>
             </tr>
           ))}
         </tbody>

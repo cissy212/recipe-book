@@ -1,8 +1,4 @@
 import axios from "axios";
-import { apiServer } from "./url";
-import { recipeList } from "../data/sampleData";
-
-// const serverAddress = "/recipes";
 
 export async function getRecipesApi() {
   try {
@@ -24,14 +20,37 @@ export async function getSelectedRecipeApi(id) {
   }
 }
 
-export async function saveRecipeScoreApi(id, score) {
+export async function saveRecipeScoreApi(recipe) {
   try {
-    const response = await axios.get(`http://localhost:8080/recipes/${id}`);
-    return response.data.scores[0];
-    // console.log(id, score);
-    // return 1;
+    await axios({
+      method: "put",
+      url: `http://localhost:8080/recipes/${recipe._id}`,
+      data: recipe,
+
+      headers: { "Content-Type": "application/json" },
+      timeout: 35000,
+    });
   } catch (e) {
     console.log("error in saveRecipeScoreApi");
-    return null;
   }
+
+  // await axios.put(
+  //   `http://localhost:8080/recipes/${id}`,
+  //   {
+  //     headers: { "Content-Type": "application/json" },
+  //     timeout: 35000,
+  //   },
+  //   { scores: scores }
+  // );
+  // const newScores = response.data.scores;
+  // const addScore = newScores.push(score);
+  // const average = (newScores) => {
+  //   const total = newScores.reduce((acc, c) => acc + c, 0);
+  //   return total / newScores.length;
+  // };
+  // return average(newScores);
+  // } catch (e) {
+  //   console.log("error in saveRecipeScoreApi");
+  //   return null;
+  //
 }

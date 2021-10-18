@@ -36,9 +36,12 @@ const Recipe = () => {
 
   const saveRecipeScore = () => {
     if (selectedScore !== "") {
-      dispatch(
-        actions.saveRecipeScore(selectedRecipeData.id, parseInt(selectedScore))
-      );
+      let newRecipe = {
+        ...selectedRecipeData,
+        scores: [...selectedRecipeData.scores, parseInt(selectedScore)],
+      };
+
+      dispatch(actions.saveRecipeScore(newRecipe));
 
       history.push(source === "home" ? "/" : `/${source}`);
     } else {
@@ -58,7 +61,7 @@ const Recipe = () => {
           (selectedRecipeData ? (
             <>
               <h2 className="title">
-                <b>{`${selectedRecipeData.name} (${selectedRecipeData.scores})`}</b>
+                <b>{`${selectedRecipeData.name} (${selectedRecipeData.scoreAvg})`}</b>
               </h2>
               <Tabs>
                 <TabList>
