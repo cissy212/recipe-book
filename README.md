@@ -61,26 +61,26 @@ with postman you can populate the DB with this
 
 POST http://localhost:8080/recipes
 
-    "name": "Gnocchi de batata",
+   { "name": "Gnocchi de batata",
     "scores": [3],
     "steps": ["pisar batatas","mezclar harina"],
-    "ingredients": [{"name": "batata","unitShare": 2}]
+    "ingredients": [{"name": "batata","unitShare": 2}]}
 
 
 POST http://localhost:8080/recipes
 
-  	"name": "Arroz con Pollo",
+  	{"name": "Arroz con Pollo",
     "scores": [4.3],
 		"steps": ["picar cebolla","cortar tomates"],
     "ingredients": [
 			{"name": "cebolla","unitShare": 0.125},
       {"name": "tomate","unitShare": 0.25 }
-			]
+			]}
 		
 	
 POST http://localhost:8080/recipes
 
-    "name": "Brownie",
+    {"name": "Brownie",
     "scores": [4.6],
     "steps": ["calentar horno","mezclar huevos"],
-    "ingredients": [{"name": "huevos","unitShare": 0.25}]
+    "ingredients": [{"name": "huevos","unitShare": 0.25}]}
