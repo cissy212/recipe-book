@@ -53,6 +53,10 @@ once installed
 npm run devStart
 
 
+create a .env with this information
+DATABASE_URL=mongodb://localhost/recipes
+
+
 with postman you can populate the DB with this
 
 POST http://localhost:8080/recipes
