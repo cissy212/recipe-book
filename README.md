@@ -16,6 +16,10 @@ npm install --save redux-thunk
 
 npm install axios
 
+once installed
+
+npm start
+
 
 if you don't have mongodb please install it in your computer 
 
@@ -35,6 +39,10 @@ npm install express
 npm install cors
 
 npm install mongoose
+
+once installed
+
+npm run devStart
 
 
 with postman you can populate the DB with this
