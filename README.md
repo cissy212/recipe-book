@@ -4,7 +4,7 @@ Recipe book manager
 To run this application you should clone this repository and install the next dependencies
 
 
-Client side
+cd Client
 
 npm i
 
